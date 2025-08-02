@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(10px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); 
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); 
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Status indicators */
+.status-online {
+  @apply bg-green-500;
+}
+
+.status-offline {
+  @apply bg-red-500;
+}
+
+.status-warning {
+  @apply bg-yellow-500;
+}
+
+/* Security level indicators */
+.security-high {
+  @apply bg-green-500 text-green-100;
+}
+
+.security-medium {
+  @apply bg-yellow-500 text-yellow-100;
+}
+
+.security-low {
+  @apply bg-red-500 text-red-100;
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Interactive elements */
+.interactive-card {
+  @apply transition-all duration-200 hover:scale-105 hover:shadow-lg cursor-pointer;
+}
+
+.interactive-card:active {
+  @apply scale-95;
+}
+
+/* Loading states */
+.skeleton {
+  @apply animate-pulse bg-gray-700 rounded;
+}
+
+/* Command status indicators */
+.command-success {
+  @apply text-green-400 bg-green-400/10 border border-green-400/20;
+}
+
+.command-error {
+  @apply text-red-400 bg-red-400/10 border border-red-400/20;
+}
+
+.command-pending {
+  @apply text-yellow-400 bg-yellow-400/10 border border-yellow-400/20;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .mobile-grid {
+    @apply grid-cols-1;
+  }
+  
+  .mobile-padding {
+    @apply p-4;
+  }
+  
+  .mobile-text {
+    @apply text-sm;
+  }
+}
+
+/* Dark mode enhancements */
+.dark-card {
+  @apply bg-gray-800 border border-gray-700;
+}
+
+.dark-input {
+  @apply bg-gray-700 border-gray-600 text-white placeholder-gray-400;
+}
+
+.dark-button {
+  @apply bg-gray-700 hover:bg-gray-600 text-white;
+}
+
+/* Security themed colors */
+.security-primary {
+  @apply bg-blue-600 hover:bg-blue-700;
+}
+
+.security-danger {
+  @apply bg-red-600 hover:bg-red-700;
+}
+
+.security-warning {
+  @apply bg-yellow-600 hover:bg-yellow-700;
+}
+
+.security-success {
+  @apply bg-green-600 hover:bg-green-700;
+}
+
+/* Video/Image viewer */
+.media-viewer {
+  @apply relative overflow-hidden rounded-lg;
+}
+
+.media-controls {
+  @apply absolute bottom-0 left-0 right-0 bg-black/50 backdrop-blur-sm p-4;
+}
+
+/* Real-time indicators */
+.realtime-indicator {
+  @apply relative;
+}
+
+.realtime-indicator::before {
+  content: '';
+  @apply absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-ping;
+}
+
+.realtime-indicator::after {
+  content: '';
+  @apply absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full;
+}
+
+/* Command history timeline */
+.timeline-item {
+  @apply relative pl-8;
+}
+
+.timeline-item::before {
+  content: '';
+  @apply absolute left-0 top-2 w-4 h-4 rounded-full border-2 border-current;
+}
+
+.timeline-item:not(:last-child)::after {
+  content: '';
+  @apply absolute left-2 top-6 w-0.5 h-full bg-current opacity-30;
+}
